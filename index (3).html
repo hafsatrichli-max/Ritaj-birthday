@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+<title>🎉 عيد ميلاد ريتاج 🎂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Persistent floating background: balloons, stars, sparkles, hearts -->
+  <div class="sky" aria-hidden="true">
+    <div class="balloon balloon--1"></div>
+    <div class="balloon balloon--2"></div>
+    <div class="balloon balloon--3"></div>
+    <div class="balloon balloon--4"></div>
+    <div class="balloon balloon--5"></div>
+    <span class="deco deco--1">⭐</span>
+    <span class="deco deco--2">✨</span>
+    <span class="deco deco--3">💖</span>
+    <span class="deco deco--4">✨</span>
+    <span class="deco deco--5">⭐</span>
+    <span class="deco deco--6">💖</span>
+  </div>
+
+  <!-- Full-screen color flash for big victory moments -->
+  <div id="flash-overlay" class="flash-overlay" aria-hidden="true"></div>
+
+  <!-- JS injects confetti / hearts / stars / balloons / fireworks in here -->
+  <div id="fx-layer" class="fx-layer" aria-hidden="true"></div>
+
+  <main class="stage">
+
+    <!-- ============ SCREEN 1: WELCOME ============ -->
+    <section id="screen-welcome" class="screen screen--welcome">
+
+      <div class="cake" id="cake-welcome">
+        <div class="cake__plate"></div>
+        <div class="cake__layer cake__layer--bottom">
+          <span class="sprinkle sprinkle--1"></span>
+          <span class="sprinkle sprinkle--2"></span>
+          <span class="sprinkle sprinkle--3"></span>
+          <span class="sprinkle sprinkle--4"></span>
+          <span class="sprinkle sprinkle--5"></span>
+        </div>
+        <div class="cake__layer cake__layer--mid">
+          <span class="sprinkle sprinkle--6"></span>
+          <span class="sprinkle sprinkle--7"></span>
+          <span class="sprinkle sprinkle--8"></span>
+        </div>
+        <div class="cake__icing"></div>
+        <div class="candles">
+          <div class="candle candle--1"><span class="flame"></span></div>
+          <div class="candle candle--2"><span class="flame"></span></div>
+          <div class="candle candle--3"><span class="flame"></span></div>
+          <div class="candle candle--4"><span class="flame"></span></div>
+          <div class="candle candle--5"><span class="flame"></span></div>
+        </div>
+      </div>
+
+      <h1 class="headline">🎉 مرحباً بالأميرة ريتاج! 👑</h1>
+      <p class="subline">اليوم هو يومكِ المميز! 🎂💖</p>
+
+      <button id="btn-start" class="btn btn--start" type="button">ابدئي المغامرة ✨</button>
+    </section>
+
+    <!-- ============ SCREEN 2: THE FUN QUESTION ============ -->
+    <section id="screen-question" class="screen screen--question hidden">
+
+      <h1 class="headline">🎀 يا ريتاج، هل أنتِ مستعدة للاحتفال؟ 🎉</h1>
+
+      <div class="button-row">
+        <button id="btn-no" class="btn btn--no" type="button">لا 🙈</button>
+        <button id="btn-yes" class="btn btn--yes" type="button">نعم! 😍</button>
+      </div>
+
+      <p id="taunt" class="taunt hidden"></p>
+    </section>
+
+    <!-- ============ SCREEN 3: FIND YOUR AGE ============ -->
+    <section id="screen-age" class="screen screen--age hidden">
+
+      <div id="age-question" class="age-question">
+        <h1 class="headline">🎁 هناك هدية خاصة لكِ يا ريتاج!</h1>
+        <p class="subline">لكن قبل أن تحصلي عليها، يجب أن تجدي رقم عمركِ! 🔐✨</p>
+        <p class="subline subline--small">اضغطي على رقم عمركِ لتحصلي على الهدية! 🎀</p>
+
+        <div class="number-grid" id="number-grid">
+          <button class="number" data-value="1" type="button">1</button>
+          <button class="number" data-value="2" type="button">2</button>
+          <button class="number" data-value="3" type="button">3</button>
+          <button class="number" data-value="4" type="button">4</button>
+          <button class="number" data-value="5" type="button">5</button>
+          <button class="number" data-value="6" type="button">6</button>
+          <button id="num-7" class="number number--seven" data-value="7" type="button">7</button>
+          <button class="number" data-value="8" type="button">8</button>
+          <button class="number" data-value="9" type="button">9</button>
+        </div>
+
+        <p id="age-message" class="age-message hidden"></p>
+      </div>
+
+      <div id="age-success" class="age-success hidden">
+        <p class="headline headline--mid">🎉 أحسنتِ يا ريتاج!</p>
+        <p class="subline">لقد وجدتِ الرقم السري! 🔐✨</p>
+      </div>
+    </section>
+
+    <!-- ============ SCREEN 4: THE GIFT ============ -->
+    <section id="screen-gift" class="screen screen--gift hidden">
+
+      <p class="headline headline--mid">🎉 أحسنتِ يا ريتاج!</p>
+      <p class="subline">لقد وجدتِ هديتكِ! 🎁💖</p>
+
+      <div class="gift-stage" id="gift-stage">
+        <span class="gift-stage__sparkle gift-stage__sparkle--1">✨</span>
+        <span class="gift-stage__sparkle gift-stage__sparkle--2">⭐</span>
+        <span class="gift-stage__sparkle gift-stage__sparkle--3">✨</span>
+        <span class="gift-box-icon" id="gift-box-icon">🎁</span>
+      </div>
+
+      <button id="btn-open-gift" class="btn btn--gift" type="button">افتحي الهدية 🎁</button>
+    </section>
+
+    <!-- ============ SCREEN 5: BIG CELEBRATION ============ -->
+    <section id="screen-final" class="screen screen--final hidden">
+
+      <div class="crown-wrap"><span class="crown">👑</span></div>
+
+      <div class="cake" id="cake-final">
+        <div class="cake__plate"></div>
+        <div class="cake__layer cake__layer--bottom">
+          <span class="sprinkle sprinkle--1"></span>
+          <span class="sprinkle sprinkle--2"></span>
+          <span class="sprinkle sprinkle--3"></span>
+          <span class="sprinkle sprinkle--4"></span>
+          <span class="sprinkle sprinkle--5"></span>
+        </div>
+        <div class="cake__layer cake__layer--mid">
+          <span class="sprinkle sprinkle--6"></span>
+          <span class="sprinkle sprinkle--7"></span>
+          <span class="sprinkle sprinkle--8"></span>
+        </div>
+        <div class="cake__icing"></div>
+        <div class="candles">
+          <div class="candle candle--1"><span class="flame"></span></div>
+          <div class="candle candle--2"><span class="flame"></span></div>
+          <div class="candle candle--3"><span class="flame"></span></div>
+          <div class="candle candle--4"><span class="flame"></span></div>
+          <div class="candle candle--5"><span class="flame"></span></div>
+        </div>
+      </div>
+
+      <h1 class="final-headline">🎉🎉 عيد ميلاد سعيد يا ريتاج! 🎉🎉</h1>
+      <p class="final-sub final-sub--crown">👑 عيد ميلادكِ السابع 👑</p>
+      <p class="final-sub">💖 كل عام وأنتِ بخير يا أميرة! 💖</p>
+
+      <div class="age-badge">
+        <span class="age-badge__number">7️⃣</span>
+      </div>
+
+      <p class="final-sub final-sub--wish">🌟 أتمنى أن تكون سنتكِ الجديدة مليئة بالفرح والضحك والمغامرات! 🌟</p>
+
+      <button id="btn-surprise" class="btn btn--surprise" type="button">🎁 مفاجأة أخرى</button>
+
+      <p id="surprise-message" class="surprise-message hidden">💖 ريتاج، أنتِ رائعة جداً! 👑✨</p>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
